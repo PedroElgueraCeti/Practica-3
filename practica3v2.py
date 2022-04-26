@@ -13,8 +13,8 @@ img1 = cv2.imread('mustang.jpg', 1)
 img2 = cv2.imread('camaro.jpg', 1)
 
 #Dimencionamiento en bruto
-Redimg1 = cv2.resize(img1, (200, 200))
-Redimg2 = cv2.resize(img2, (200, 200))
+Redimg1 = cv2.resize(img1, (300, 200))
+Redimg2 = cv2.resize(img2, (300, 200))
 
 #De matriz BGR a RGB
 Redimg1 = cv2.cvtColor(Redimg1, cv2.COLOR_BGR2RGB)
