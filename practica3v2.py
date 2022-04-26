@@ -9,8 +9,8 @@ from skimage import io
 import math
 
 #Imágenes Iniciales
-img1 = cv2.imread('Ave1.jpg', 1)
-img2 = cv2.imread('Ave2.jpg', 1)
+img1 = cv2.imread('mustang.jpg', 1)
+img2 = cv2.imread('camaro.jpg', 1)
 
 #Dimencionamiento en bruto
 Redimg1 = cv2.resize(img1, (200, 200))
