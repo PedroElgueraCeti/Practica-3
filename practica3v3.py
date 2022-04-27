@@ -7,7 +7,9 @@ import cv2 #Opencv
 import skimage
 from skimage import io
 import math
-
+import PIL
+from PIL import ImageTk
+from PIL import Image
 fila = 4
 columna = 3
 
@@ -26,7 +28,7 @@ Redimg2 = cv2.cvtColor(Redimg2, cv2.COLOR_BGR2RGB)
 def graficar(operacion,redimg1,redimg2,redimgop):
     global fila 
     global columna
-    fig = plt.figure(figsize=(10,7), constrained_layout=True,title=operacion)
+    fig = plt.figure(figsize=(10,7), constrained_layout=True)
     fig.add_subplot(fila,columna,1)
     plt.imshow(redimg1)
     plt.axis('off')
@@ -127,5 +129,16 @@ graficar(operacion,Redimg1,Redimg2,Redimgop)
 plt.close()
 operacion="Resta"
 Redimgop=cv2.subtract(Redimg1,Redimg2)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
+operacion="Multiplicacion"
+Redimgop=cv2.multiply(Redimg1,Redimg2)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
+operacion="Division"
+Redimgop=cv2.divide(Redimg1,Redimg2)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+operacion="Logaritmo"
+Redimgop=cv2.sqrt(Redimg1)
 graficar(operacion,Redimg1,Redimg2,Redimgop)
 plt.close()
