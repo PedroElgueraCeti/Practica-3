@@ -23,9 +23,10 @@ Redimg2 = cv2.resize(img2, (300, 200))
 Redimg1 = cv2.cvtColor(Redimg1, cv2.COLOR_BGR2RGB)
 Redimg2 = cv2.cvtColor(Redimg2, cv2.COLOR_BGR2RGB)
 
-def graficar(operacion,fig,redimg1,redimg2,redimgop):
+def graficar(operacion,redimg1,redimg2,redimgop):
     global fila 
-    global columna 
+    global columna
+    fig = plt.figure(figsize=(10,7), constrained_layout=True,title=operacion)
     fig.add_subplot(fila,columna,1)
     plt.imshow(redimg1)
     plt.axis('off')
@@ -118,11 +119,13 @@ def graficar(operacion,fig,redimg1,redimg2,redimgop):
     plt.imshow(equaimgOp)
     plt.axis('off')
     plt.title("Imagen Ecualizada: "+operacion)
-
     plt.show()
 
-
-Fig = plt.figure(figsize=(10,7), constrained_layout=True) 
 operacion="Suma"
 Redimgop=cv2.add(Redimg1,Redimg2)
-graficar(operacion,Fig,Redimg1,Redimg2,Redimgop)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
+operacion="Resta"
+Redimgop=cv2.subtract(Redimg1,Redimg2)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
