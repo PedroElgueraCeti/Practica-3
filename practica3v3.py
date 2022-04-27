@@ -124,7 +124,7 @@ def graficar(operacion,redimg1,redimg2,redimgop):
     plt.axis('off')
     plt.title("Imagen Ecualizada: "+operacion)
     plt.show()
-'''
+
 operacion="Suma"
 Redimgop=cv2.add(Redimg1,Redimg2)
 graficar(operacion,Redimg1,Redimg2,Redimgop)
@@ -168,11 +168,22 @@ operacion="Negacion"
 Redimgop=Redimg1
 Redimgop=image= 255-Redimgop
 graficar(operacion,Redimg1,Redimg2,Redimgop)
-plt.close()'''
+plt.close()
 operacion="Translacion"
 ancho = Redimg1.shape[1] #columnas
 alto = Redimg1.shape[0] #fila
-M = np.float32([[1,0,100],[0,1,150]])
-image = cv2.warpAffine(img1,M,(ancho,alto))
+M = np.float32([[1,0,2],[0,1,2]])
+Redimgop = cv2.warpAffine(img1,M,(ancho,alto))
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
+operacion="Escalado"
+Redimgop= imutils.resize(Redimg1,height=400)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
+operacion="Rotacion"
+ancho = Redimg1.shape[1] #columnas
+alto = Redimg1.shape[0] #fila
+M = cv2.getRotationMatrix2D((ancho//2,alto//2),15,1)
+Redimgop = cv2.warpAffine(img1,M,(ancho,alto))
 graficar(operacion,Redimg1,Redimg2,Redimgop)
 plt.close()
