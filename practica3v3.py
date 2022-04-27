@@ -139,15 +139,40 @@ graficar(operacion,Redimg1,Redimg2,Redimgop)
 plt.close()
 operacion="Division"
 Redimgop=cv2.divide(Redimg1,Redimg2)
-graficar(operacion,Redimg1,Redimg2,Redimgop)'''
+graficar(operacion,Redimg1,Redimg2,Redimgop)
 operacion="Raiz cuadrada"
 Redimgop=Redimg1
-
 Redimgop=np.sqrt(Redimgop)
 Redimgop=np.asarray(Redimgop, dtype = int)
-Redimgop = cv2.cvtColor(Redimgop,cv2.COLOR_BGR2RGB)
-#print(Redimg1)
-#print("---------")
-print(Redimgop)
-#graficar(operacion,Redimg1,Redimg2,Redimgop)
-#plt.close()
+cv2.imwrite("resultSQRT.jpg",Redimgop)
+Redimgop = cv2.imread('resultSQRT.jpg', 1)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
+operacion="Potencia"
+Redimgop=Redimg1
+Redimgop=np.power(Redimgop,2)
+Redimgop=np.asarray(Redimgop, dtype = int)
+cv2.imwrite("resultPower.jpg",Redimgop)
+Redimgop = cv2.imread('resultPower.jpg', 1)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
+operacion="Conjuncion"
+Redimgop=cv2.bitwise_and(Redimg1,Redimg2)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
+operacion="Disyuncion"
+Redimgop=cv2.bitwise_or(Redimg1,Redimg2)
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
+operacion="Negacion"
+Redimgop=Redimg1
+Redimgop=image= 255-Redimgop
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()'''
+operacion="Translacion"
+ancho = Redimg1.shape[1] #columnas
+alto = Redimg1.shape[0] #fila
+M = np.float32([[1,0,100],[0,1,150]])
+image = cv2.warpAffine(img1,M,(ancho,alto))
+graficar(operacion,Redimg1,Redimg2,Redimgop)
+plt.close()
