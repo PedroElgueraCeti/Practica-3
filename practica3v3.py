@@ -2,14 +2,16 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
-import cv2 #Opencv
+from matplotlib import pylab 
+import cv2
+from numpy.core.fromnumeric import size #Opencv
 import skimage
 from skimage import io
 import math
 import PIL
 import imutils
 from PIL import ImageTk
-from PIL import Image
+from PIL import Image as Im
 fila = 4
 columna = 3
 
@@ -139,14 +141,13 @@ operacion="Division"
 Redimgop=cv2.divide(Redimg1,Redimg2)
 graficar(operacion,Redimg1,Redimg2,Redimgop)'''
 operacion="Raiz cuadrada"
-img1l =np.array(Redimg1)
-image=np.power(img1l,1/2)
-Redimgop=Image.fromarray(image,'RGB')
+Redimgop=Redimg1
 
-print("---Primer dato------------------")
-print(Redimg1)
-print("-Dato Final----------------------")
+Redimgop=np.sqrt(Redimgop)
+Redimgop=np.asarray(Redimgop, dtype = int)
+Redimgop = cv2.cvtColor(Redimgop,cv2.COLOR_BGR2RGB)
+#print(Redimg1)
+#print("---------")
 print(Redimgop)
-
 #graficar(operacion,Redimg1,Redimg2,Redimgop)
 #plt.close()
