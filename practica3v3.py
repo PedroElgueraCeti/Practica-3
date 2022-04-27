@@ -2,12 +2,12 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
-from PIL import Image
 import cv2 #Opencv
 import skimage
 from skimage import io
 import math
 import PIL
+import imutils
 from PIL import ImageTk
 from PIL import Image
 fila = 4
@@ -122,7 +122,7 @@ def graficar(operacion,redimg1,redimg2,redimgop):
     plt.axis('off')
     plt.title("Imagen Ecualizada: "+operacion)
     plt.show()
-
+'''
 operacion="Suma"
 Redimgop=cv2.add(Redimg1,Redimg2)
 graficar(operacion,Redimg1,Redimg2,Redimgop)
@@ -137,8 +137,17 @@ graficar(operacion,Redimg1,Redimg2,Redimgop)
 plt.close()
 operacion="Division"
 Redimgop=cv2.divide(Redimg1,Redimg2)
-graficar(operacion,Redimg1,Redimg2,Redimgop)
-operacion="Logaritmo"
-Redimgop=cv2.sqrt(Redimg1)
-graficar(operacion,Redimg1,Redimg2,Redimgop)
-plt.close()
+graficar(operacion,Redimg1,Redimg2,Redimgop)'''
+operacion="Raiz cuadrada"
+img1l =np.array(Redimg1)
+img1l = Image.convert("RGB")
+image=np.sqrt(img1l)
+Redimgop=Image.fromarray(image,'RGB')
+
+print("---Primer dato------------------")
+print(Redimg1)
+print("-Dato Final----------------------")
+print(Redimgop)
+
+#graficar(operacion,Redimg1,Redimg2,Redimgop)
+#plt.close()
