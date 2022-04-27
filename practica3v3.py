@@ -140,8 +140,7 @@ Redimgop=cv2.divide(Redimg1,Redimg2)
 graficar(operacion,Redimg1,Redimg2,Redimgop)'''
 operacion="Raiz cuadrada"
 img1l =np.array(Redimg1)
-img1l = Image.convert("RGB")
-image=np.sqrt(img1l)
+image=np.power(img1l,1/2)
 Redimgop=Image.fromarray(image,'RGB')
 
 print("---Primer dato------------------")
