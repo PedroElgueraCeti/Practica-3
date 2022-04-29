@@ -5,10 +5,9 @@ from matplotlib import pyplot as plt
 from matplotlib import pylab 
 import cv2
 from numpy.core.fromnumeric import size #Opencv
-import skimage
+
 from skimage import io
-import math
-import PIL
+
 import imutils
 from PIL import ImageTk
 from PIL import Image as Im
@@ -37,7 +36,7 @@ def graficar(operacion,redimg1,redimg2,redimgop):
     plt.title("Imagen 1")
 
     fig.add_subplot(fila,columna,4)
-    color = ('g','b','r')
+    color = ('r','g','b')
     for i, c in enumerate(color):
         hist = cv2.calcHist([redimg1], [i], None, [256], [0, 256])
         plt.plot(hist, color = c)
@@ -49,7 +48,7 @@ def graficar(operacion,redimg1,redimg2,redimgop):
     img_to_yuv = cv2.cvtColor(Redimg1,cv2.COLOR_RGB2YUV)
     img_to_yuv[:,:,0] = cv2.equalizeHist(img_to_yuv[:,:,0])
     equaimg1 = cv2.cvtColor(img_to_yuv, cv2.COLOR_YUV2RGB)
-    color = ('g','b','r')
+    color = ('r','g','b')
     for i, c in enumerate(color):
         hist = cv2.calcHist([equaimg1], [i], None, [256], [0, 256])
         plt.plot(hist, color = c)
@@ -68,7 +67,7 @@ def graficar(operacion,redimg1,redimg2,redimgop):
     plt.title("Imagen 1")
 
     fig.add_subplot(fila,columna,6)
-    color = ('g','b','r')
+    color = ('r','g','b')
     for i, c in enumerate(color):
         hist = cv2.calcHist([redimg2], [i], None, [256], [0, 256])
         plt.plot(hist, color = c)
@@ -80,7 +79,7 @@ def graficar(operacion,redimg1,redimg2,redimgop):
     img_to_yuv = cv2.cvtColor(Redimg2,cv2.COLOR_RGB2YUV)
     img_to_yuv[:,:,0] = cv2.equalizeHist(img_to_yuv[:,:,0])
     equaimg2 = cv2.cvtColor(img_to_yuv, cv2.COLOR_YUV2RGB)
-    color = ('g','b','r')
+    color = ('r','g','b')
     for i, c in enumerate(color):
         hist = cv2.calcHist([equaimg2], [i], None, [256], [0, 256])
         plt.plot(hist, color = c)
@@ -99,7 +98,7 @@ def graficar(operacion,redimg1,redimg2,redimgop):
     plt.title("Imagen 2:"+operacion)
 
     fig.add_subplot(fila,columna,5)
-    color = ('g','b','r')
+    color = ('r','g','b')
     for i, c in enumerate(color):
         hist = cv2.calcHist([redimgop], [i], None, [256], [0, 256])
         plt.plot(hist, color = c)
@@ -111,7 +110,7 @@ def graficar(operacion,redimg1,redimg2,redimgop):
     img_to_yuv = cv2.cvtColor(redimgop,cv2.COLOR_RGB2YUV)
     img_to_yuv[:,:,0] = cv2.equalizeHist(img_to_yuv[:,:,0])
     equaimgOp = cv2.cvtColor(img_to_yuv, cv2.COLOR_YUV2RGB)
-    color = ('g','b','r')
+    color = ('r','g','b')
     for i, c in enumerate(color):
         hist = cv2.calcHist([equaimgOp], [i], None, [256], [0, 256])
         plt.plot(hist, color = c)
